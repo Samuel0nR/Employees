@@ -98,6 +98,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "CRUD:build:production",
+            "firebaseProject": "empleadosapp-bc787",
+            "firebaseHostingSite": "empleadosapp-bc787"
+          }
         }
       }
     }

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "empleadosapp-bc787"
+  },
+  "targets": {
+    "empleadosapp-bc787": {
+      "hosting": {
+        "CRUD": [
+          "empleadosapp-bc787"
+        ]
+      }
+    }
+  }
+}
