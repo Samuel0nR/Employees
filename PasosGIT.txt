@@ -2,14 +2,9 @@
 git checkout -b nombredeRama
 git status
 git add .
-git commit -m "DescripcionRama" 
+git commit -m "DescripcionRama"
 git push origin nombredeRama
-
-git checkout master // switch a rama
-git pull // desde rama master, traer los cambios del remoto al local
-git branch -D rama // borrar rama local
-git push origin :ODIS-1346-v4 // borrar rama en remotolibrary
+git checkout main // switch a rama
+git pull origin main// desde rama main, traer los cambios del remoto al local
 
 git branch // ver todas las ramas
-git pull origin rama_xxx  // Obtener rama expecifica
-

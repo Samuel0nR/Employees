@@ -3,8 +3,8 @@
     <div class="col-lg-6 offset-lg-3">
       <div class="card text-center">
         <div class="card-body">
-            <h3>Agregar Empleado</h3>
-            <form class="mt-4" [formGroup]="createEmpleado" (ngSubmit)="agregarEmpleado()">
+            <h3>{{titulo}}</h3>
+            <form class="mt-4" [formGroup]="createEmpleado" (ngSubmit)="agregarEditarEmpleado()">
                 <div class="row">
                     <div class="col">
                         <input type="text" class="form-control form-control-lg" placeholder="Nombre" formControlName="nombre">
