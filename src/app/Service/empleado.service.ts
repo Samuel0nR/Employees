@@ -19,4 +19,13 @@ export class EmpleadoService {
   borrarEmpleado(id: string): Promise<any> {
     return this.firestore.collection("empleado").doc(id).delete();
   }
+
+  getEmpleado(id: string): Observable <any>{
+   return this.firestore.collection("empleado").doc(id).snapshotChanges(); 
+  }
+
+  actualizarEmpleado(id: string, data: string): Promise<any>{
+    return this.firestore.collection('empleado').doc(id).update(data)
+  }
+
 }
