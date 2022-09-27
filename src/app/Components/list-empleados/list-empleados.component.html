@@ -2,42 +2,29 @@
   <div class="card">
     <div class="card-body">
       <span class="h3">Lista de Empleados</span>
-      <button class="btn btn-dark btn-lg float-end" routerLink="/create-empleado">Agregar</button> 
-      <table class="table mt-5">
+      <button class="btn btn-dark btn-lg float-end" routerLink="/create-empleado">Agregar</button>
+      <H5 *ngIf="empleados.length == 0" class="mt-5 mx-5">No hay datos para mostar</H5> 
+      <table *ngIf="empleados.length > 0" class="table mt-5">
         <thead>
           <tr>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>RUT</th>
             <th>Salario</th>
-            <th></th>
+            <th>Opciones</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Tomás</td>
-            <td>Gonzalez</td>
-            <td>20200200-2</td>
-            <td>300.000</td>
-            <th><i class="fa-solid fa-pen-to-square fa-lg"></i></th>
-            <th><i class="fa-solid fa-trash fa-lg text-danger"></i></th>
-          </tr>
-          <tr>
-            <td>Tomás</td>
-            <td>Gonzalez</td>
-            <td>20200200-2</td>
-            <td>350.000</td>
-            <th><i class="fa-solid fa-pen-to-square fa-lg"></i></th>
-            <th><i class="fa-solid fa-trash fa-lg text-danger"></i></th>
+          <tr  *ngFor="let empleado of empleados">
+            <td>{{empleado.nombre}}</td>
+            <td>{{empleado.apellido}}</td>
+            <td>{{empleado.RUT}}</td>
+            <td>{{empleado.salario | currency}}</td>
+            <th><i [routerLink]="['/editEmpleado/', empleado.id]" class="fa-solid fa-pen-to-square fa-lg" style="margin-right: 15px; margin-left: 25px;"></i> <i (click)="borrarEmpleado(empleado.id)" class="fa-solid fa-trash fa-lg text-danger" style="margin-left: 15px;"></i></th>
           </tr>
           
         </tbody>
       </table>
-      <ul>
-        <li class="text" *ngFor="let item of items | async">
-          {{item.name}}
-        </li>
-      </ul>
     </div>
   </div>
 </div>
