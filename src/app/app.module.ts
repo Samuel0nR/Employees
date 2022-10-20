@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
@@ -17,6 +18,7 @@ import { NavbarComponent } from "./Components/navbar/navbar.component";
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { VerEmpleadoComponent } from './Components/ver-empleado/ver-empleado.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +26,10 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     ListEmpleadosComponent,
     CreateEmpleadoComponent,
     NavbarComponent,
+    VerEmpleadoComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule, 
     AppRoutingModule, 

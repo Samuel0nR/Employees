@@ -1,10 +1,19 @@
+GitHub
 
-git checkout -b nombredeRama
-git status
-git add .
-git commit -m "DescripcionRama"
-git push origin nombredeRama
+Subir Repository
+    git checkout -b nombredeRama
+    git status
+    git add .
+    git commit -m "DescripcionRama"
+    git push origin nombredeRama
+
 git checkout main // switch a rama
 git pull origin main// desde rama main, traer los cambios del remoto al local
-
 git branch // ver todas las ramas
+
+_________________
+
+Firebase
+
+Actualizar pag
+    git bash: $ firebase deploy --only hosting

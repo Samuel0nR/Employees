@@ -1,7 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
+
 import { ToastrService } from "ngx-toastr";
+
 import { EmpleadoService } from "src/app/Service/empleado.service";
 
 @Component({
@@ -29,6 +31,7 @@ export class CreateEmpleadoComponent implements OnInit {
       apellido: ["", Validators.required],
       RUT_Doc: ["", Validators.required],
       salario: ["", Validators.required],
+      descrip: ["", Validators.required],
     });
     this.id = this.aRoute.snapshot.paramMap.get('id');
   }
@@ -43,6 +46,7 @@ export class CreateEmpleadoComponent implements OnInit {
       apellido: this.createEmpleado.value.apellido,
       RUT: this.createEmpleado.value.RUT_Doc,
       salario: this.createEmpleado.value.salario,
+      descripcion: this.createEmpleado.value.descrip,
       fechaCreacion: new Date(),
       fechaActualizacion: new Date()
     }
@@ -78,7 +82,6 @@ export class CreateEmpleadoComponent implements OnInit {
   Editar(){
     if(this.id !== null){
       this.titulo = 'Editar Empleado';
-
       this._empleadoService.getEmpleado(this.id).subscribe(data=>{
       this.loading = false;
         this.createEmpleado.setValue({
@@ -86,6 +89,7 @@ export class CreateEmpleadoComponent implements OnInit {
           apellido: data.payload.data()['apellido'],
           RUT_Doc: data.payload.data()['RUT'],
           salario: data.payload.data()['salario'],
+          descrip: data.payload.data()['descripcion'],
         })
       })
     }
@@ -97,9 +101,9 @@ export class CreateEmpleadoComponent implements OnInit {
       apellido: this.createEmpleado.value.apellido,
       RUT: this.createEmpleado.value.RUT_Doc,
       salario: this.createEmpleado.value.salario,
+      descripcion: this.createEmpleado.value.descrip,
       fechaActualizacion: new Date()
     }
-
     this.loading = true;
     this._empleadoService.actualizarEmpleado(id, empleado).then(()=>{
       this.loading=false;
