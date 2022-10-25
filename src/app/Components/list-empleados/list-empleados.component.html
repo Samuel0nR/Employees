@@ -6,32 +6,34 @@
         <button class="btn btn-dark btn-lg float-end" routerLink="/create-empleado">Agregar</button>
       </div>
       <H5 *ngIf="empleados.length === 0" class="mt-5 mx-5">No hay datos para mostar</H5>
-
-      <table *ngIf="empleados.length > 0" class="table mt-5">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th style="width: 200px;">RUT</th>
-            <th style="width: 180px;">Salario</th>
-            <th style="width: 180px;">Opciones</th>
-          </tr>
-        </thead>
-        <tbody class="table-group-divider">
-          <tr  *ngFor="let empleado of empleados">
-            <td>{{empleado.nombre}}</td>
-            <td>{{empleado.apellido}}</td>
-            <td>{{empleado.RUT}}</td>
-            <td>{{empleado.salario | currency : 'USD' : 'symbol' : '1.0-0' }}</td>
-            <th id="options"> 
-              <span><i [routerLink]="['/verEmpleado/', empleado.id]" class="fa-solid fa-file-lines fa-lg"></i></span> 
-              <span><i [routerLink]="['/editEmpleado/', empleado.id]" class="fa-solid fa-pen-to-square fa-lg"></i></span>
-              <span><i (click)="borrarEmpleado(empleado.id)" class="fa-solid fa-trash fa-lg text-danger"></i></span>
-            </th>
-          </tr>
-          
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table *ngIf="empleados.length > 0" class="table mt-5">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th style="width: 200px;">RUT</th>
+              <th style="width: 180px;">Salario</th>
+              <th style="width: 180px;">Opciones</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <tr  *ngFor="let empleado of empleados">
+              <td>{{empleado.nombre}}</td>
+              <td>{{empleado.apellido}}</td>
+              <td>{{empleado.RUT}}</td>
+              <td>{{empleado.salario | currency : 'USD' : 'symbol' : '1.0-0' }}</td>
+              <th id="options"> 
+                <span><i [routerLink]="['/verEmpleado/', empleado.id]" class="fa-solid fa-file-lines fa-lg"></i></span> 
+                <span><i [routerLink]="['/editEmpleado/', empleado.id]" class="fa-solid fa-pen-to-square fa-lg"></i></span>
+                <span><i (click)="borrarEmpleado(empleado.id)" class="fa-solid fa-trash fa-lg text-danger"></i></span>
+              </th>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      
     </div>
   </div>
 </div>
